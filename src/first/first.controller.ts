@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 
 import { SayHelloService } from './say-hello.service';
 import { LoggerService } from './logger.service';
+import { AddSectionDto } from './dto/add-section.dto';
 
 @Controller('first')
 export class FirstController {
@@ -31,7 +32,7 @@ export class FirstController {
     }    
 
     @Post()
-    addSection(@Body() section) {
+    addSection(@Body() section: AddSectionDto) {
         const id = this.sections.length ? this.sections[this.sections.length - 1].id + 1 : 1;    
         const newSection = {
             id,
@@ -57,3 +58,5 @@ export class FirstController {
 
 
 }
+
+
